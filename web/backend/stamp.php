@@ -1,13 +1,13 @@
 <?php
 
 require_once 'database.php';
-
+header('Content-Type: application/json');
 
 try{
 
     $pdo = new PDO($dsn, $username, $password, $options);
 
-    
+
     // Get card_id from HTTP request and validate
     $card_id = $_GET['card_id'] ?? null;
     if (empty($card_id)) {
