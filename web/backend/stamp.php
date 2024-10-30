@@ -10,6 +10,14 @@ try{
     // Get card_id from HTTP request
     $card_id = $_GET['card_id'];
 
+    if (empty($card_id)) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "card_id is required"
+        ]);
+        exit();
+    }
+
     // Find the user_id associated with the card_id
     $query = "SELECT id FROM users WHERE card_id = :card_id LIMIT 1";
     $stmt = $pdo->prepare($query);
