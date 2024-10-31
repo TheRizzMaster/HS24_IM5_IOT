@@ -20,7 +20,7 @@
             e.preventDefault();
 
             const formData = new FormData(this);
-            fetch('login.php', {
+            fetch('https://taim.ing/php/login.php', {
                 method: 'POST',
                 body: formData,
                 credentials: 'include'

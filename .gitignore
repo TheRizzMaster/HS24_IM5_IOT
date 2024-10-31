@@ -33,3 +33,6 @@
 
 database.php
 config.php
+
+
+.DS_STORE

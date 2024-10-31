@@ -1,6 +1,6 @@
 // JavaScript function to handle logout
 function logout() {
-    fetch('logout.php', {
+    fetch('https://taim.ing/php/logout.php', {
         method: 'POST',
         credentials: 'include' // Include cookies in the request
     })
