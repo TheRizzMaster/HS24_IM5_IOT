@@ -8,6 +8,7 @@ session_start();
 // Assuming you have a function to authenticate users
 function authenticateUser($username, $password) {
     // Replace this with your actual user authentication logic
+    global $login_user, $login_password;
     return ($username === $login_user && $password === $login_password);
 }
 
