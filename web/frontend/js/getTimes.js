@@ -1,5 +1,5 @@
 function getWorkSessions() {
-    fetch('https://www.taim.ing/php/getTimes.php', {
+    fetch('https://taim.ing/php/getTimes.php', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -44,12 +44,15 @@ function getWorkSessions() {
         } else {
             console.error("Error:", data.message);
         }
+
+        //timeout 2 seconds
+        setTimeout(hideLoadingScreen, 2000);
     })
     .catch(error => console.error('Error:', error));
 }
 
 function addDescription(sessionId, description) {
-    fetch('https://www.taim.ing/php/getTimes.php', {
+    fetch('https://taim.ing/php/getTimes.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'

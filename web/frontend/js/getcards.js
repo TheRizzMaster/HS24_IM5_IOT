@@ -1,5 +1,5 @@
 function fetchCards() {
-    fetch('https://www.taim.ing/php/getCards.php', {
+    fetch('https://taim.ing/php/getCards.php', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -36,12 +36,15 @@ function fetchCards() {
         } else {
             console.error("Error:", data.message);
         }
+
+        //timeout 2 seconds
+        setTimeout(hideLoadingScreen, 2000);
     })
     .catch(error => console.error('Error:', error));
 }
 
 function addUserDetails(card_id, firstname, lastname) {
-    fetch('https://www.taim.ing/php/registerChip.php', {
+    fetch('https://taim.ing/php/registerChip.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'

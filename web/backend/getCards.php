@@ -31,8 +31,8 @@ try {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $cardData = [
             "card_id" => $row['card_id'],
-            "firstname" => $row['firstname'],
-            "lastname" => $row['lastname']
+            "firstname" => $row['firstname'] ?? null,
+            "lastname" => $row['lastname'] ?? null
         ];
 
         if ($row['status'] === 'assigned') {

@@ -2,16 +2,8 @@
 
 require_once 'database.php';
 
-// Set CORS policy
-$allowed_domains = [
-    "https://www.fhgr-informatik.ch",
-    "https://fhgr-informatik.ch",
-    "https://www.taim.ing",
-    "https://taim.ing"
-];
-
-if (isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $allowed_domains)) {
-    header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+    header("Access-Control-Allow-Origin: https://www.taim.ing");
     header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
     header("Access-Control-Allow-Headers: Content-Type");
 } else {

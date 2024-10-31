@@ -14,3 +14,8 @@ themeToggle.addEventListener('change', () => {
     const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
     localStorage.setItem('theme', theme);
 });
+
+function hideLoadingScreen() {
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.classList.add('hidden');
+}
