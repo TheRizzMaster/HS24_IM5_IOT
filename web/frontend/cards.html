@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card-Manager</title>
+    <link rel="stylesheet" href="./css/cards.css">
 </head>
 <body>
 
@@ -11,8 +12,45 @@
     
     <button onclick="logout()">Logout</button>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Card ID</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+            </tr>
+        </thead>
+        <tbody id="user_cards">
+            <!-- Zugeteilte Karten werden hier angezeigt -->
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Card ID</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="new_cards">
+            <!-- Neue Karten werden hier angezeigt -->
+        </tbody>
+    </table>
+
+
+    <div id="newCardModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="new-card-form">
+                <input type="text" name="card_id" id="card_id" placeholder="Card ID" required>
+                <input type="text" name="first_name" id="firstname" placeholder="Vorname" required>
+                <input type="text" name="last_name" id="lastname" placeholder="Nachname" required>
+                <button onclick="addUserDetails(document.querySelector('#card_id').value, document.querySelector('#firstname').value, document.querySelector('#lastname').value)">Benutzer Verknüpfen</button>
+            </div>
+        </div>
 
     <script src="./js/checksession.js"></script>
+    <script src="./js/getcards.js"></script>
     <script src="./js/logout.js"></script>
 </body>
 </html>
