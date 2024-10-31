@@ -1,5 +1,18 @@
+/* Root color variables for light and dark themes */
 :root {
-
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #73C0FC;
+    --toggle-bg: #e8e8e8;
 }
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #183153;
+    --toggle-bg: #ffffff;
+}
+
+
 
 
