@@ -1,5 +1,5 @@
 function fetchCards() {
-    fetch('https://yourserver.com/getCards.php', {
+    fetch('https://www.taim.ing/php/getCards.php', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ function fetchCards() {
 }
 
 function addUserDetails(card_id, firstname, lastname) {
-    fetch('https://yourserver.com/registerChip.php', {
+    fetch('https://www.taim.ing/php/registerChip.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'

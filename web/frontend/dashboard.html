@@ -12,7 +12,20 @@
     <button onclick="logout()">Logout</button>
     <button onclick="window.location.href = 'cards.html'"></button>
 
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Start</th>
+            <th>Ende</th>
+            <th>Dauer</th>
+            <th>Beschreibung</th>
+        </tr>
+        <tbody id="work_sessions"></tbody>
+    </table>
+
     <script src="./js/checksession.js"></script>
+    <script src="./js/getTimes.js"></script>
     <script src="./js/logout.js"></script>
 </body>
 </html>
