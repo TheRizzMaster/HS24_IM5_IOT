@@ -5,26 +5,25 @@ require_once 'config.php';
 // Start or resume the session
 session_start();
 
-// Assuming you have a function to authenticate users
-function authenticateUser($username, $password) {
-    // Replace this with your actual user authentication logic
-    global $login_user, $login_password;
-    return ($username === $login_user && $password === $login_password);
+// Function to authenticate users
+function authenticateUser($username, $password, $users) {
+    // Check if the username exists in the map and if the password matches
+    return isset($users[$username]) && $users[$username] === $password;
 }
 
 // Retrieve credentials from POST request
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_POST['username'] ?? null;
+$password = $_POST['password'] ?? null;
 
 // Authenticate the user
-if (authenticateUser($username, $password)) {
+if ($username && $password && authenticateUser($username, $password, $users)) {
     // Store user information in session variables
-    $_SESSION['user_id'] = $username; // Store more data as needed
+    $_SESSION['user_id'] = $username;
 
     // Set the session cookie parameters
     session_set_cookie_params([
         'httponly' => true,
-        'secure' => isset($_SERVER['HTTPS']), // Only secure if using HTTPS
+        'secure' => isset($_SERVER['HTTPS']),
         'samesite' => 'Strict'
     ]);
 

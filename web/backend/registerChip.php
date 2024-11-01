@@ -6,11 +6,19 @@ header('Content-Type: application/json');
 try {
     $pdo = new PDO($dsn, $username, $password, $options);
 
-    // Retrieve POST data
-    $action = $_POST['action'] ?? null;
-    $card_id = $_POST['card_id'] ?? null;
-    $firstname = $_POST['firstname'] ?? null;
-    $lastname = $_POST['lastname'] ?? null;
+    // Retrieve POST data or decode JSON input if POST is empty
+    if (empty($_POST)) {
+        $data = json_decode(file_get_contents("php://input"), true);
+        $action = $data['action'] ?? null;
+        $card_id = $data['card_id'] ?? null;
+        $firstname = $data['firstname'] ?? null;
+        $lastname = $data['lastname'] ?? null;
+    } else {
+        $action = $_POST['action'] ?? null;
+        $card_id = $_POST['card_id'] ?? null;
+        $firstname = $_POST['firstname'] ?? null;
+        $lastname = $_POST['lastname'] ?? null;
+    }
 
     // Check if card already exists in users table
     $query = "SELECT id FROM users WHERE card_id = :card_id LIMIT 1";

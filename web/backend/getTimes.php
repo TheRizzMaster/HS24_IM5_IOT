@@ -2,19 +2,9 @@
 
 require_once 'database.php';
 
-if (isset($_SERVER['HTTP_ORIGIN'])) {
-    header("Access-Control-Allow-Origin: https://www.taim.ing");
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type");
-} else {
-    header("HTTP/1.1 403 Forbidden");
-    echo json_encode([
-        "status" => "error",
-        "message" => "Access denied"
-    ]);
-    exit();
-}
 
+header("Access-Control-Allow-Methods: GET, POST");
+header("Access-Control-Allow-Headers: Content-Type");
 header('Content-Type: application/json');
 
 try {
