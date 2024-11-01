@@ -23,14 +23,14 @@ function fetchCards() {
             assignedCards.forEach(card => {
                 const row = userCardsTable.insertRow();
                 row.insertCell().textContent = card.card_id;
-                row.insertCell().textContent = card.first_name;
-                row.insertCell().textContent = card.last_name;
+                row.insertCell().textContent = card.firstname;
+                row.insertCell().textContent = card.lastname;
             });
 
             unassignedCards.forEach(card => {
                 const row = unassignedCardsTable.insertRow();
                 row.insertCell().textContent = card.card_id;
-                row.insertCell().innerHTML = `<button onclick="assignCard(${card.card_id})">Assign</button>`;
+                row.insertCell().innerHTML = `<button onclick="assignCard('${card.card_id}')">Assign</button>`;
             });
 
         } else {
@@ -43,17 +43,20 @@ function fetchCards() {
     .catch(error => console.error('Error:', error));
 }
 
-function addUserDetails(card_id, firstname, lastname) {
+function addUserDetails(card_id_val, firstname_val, lastname_val) {
+
+    console.log("Adding user details for card:", card_id_val , firstname_val, lastname_val);
+
     fetch('https://taim.ing/php/registerChip.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         },
-        body: new URLSearchParams({
+        body: JSON.stringify({
             action: 'add_user_details',
-            card_id: card_id,
-            firstname: firstname,
-            lastname: lastname
+            card_id: card_id_val,
+            firstname: firstname_val,
+            lastname: lastname_val
         })
     })
     .then(response => response.json())
@@ -76,11 +79,15 @@ function addUserDetails(card_id, firstname, lastname) {
 
 function assignCard(card_id) {
     //open modal and ask for user details
-    const modal = document.querySelector('.modal');
+    const modal = document.querySelector('#newCardModal');
     modal.style.display = 'block';
     //set card details into input
     document.querySelector('#card_id').value = card_id;
 }
 
+function closeNewCardModal() {
+    const modal = document.querySelector('#newCardModal');
+    modal.style.display = 'none';
+}
 
 fetchCards();

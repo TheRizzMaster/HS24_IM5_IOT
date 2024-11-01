@@ -70,7 +70,7 @@
 
     <div id="newCardModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="closeNewCardModal()">&times;</span>
             <div id="new-card-form">
                 <input type="text" name="card_id" id="card_id" placeholder="Card ID" required>
                 <input type="text" name="first_name" id="firstname" placeholder="Vorname" required>
@@ -78,6 +78,7 @@
                 <button onclick="addUserDetails(document.querySelector('#card_id').value, document.querySelector('#firstname').value, document.querySelector('#lastname').value)">Benutzer Verknüpfen</button>
             </div>
         </div>
+    </div>
 
     <script src="./js/checksession.js"></script>
     <script src="./js/getcards.js"></script>

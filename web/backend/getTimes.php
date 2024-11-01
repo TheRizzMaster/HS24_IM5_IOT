@@ -2,7 +2,6 @@
 
 require_once 'database.php';
 
-
 header("Access-Control-Allow-Methods: GET, POST");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-Type: application/json');
@@ -11,21 +10,35 @@ try {
     $pdo = new PDO($dsn, $username, $password, $options);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Handle adding a description to a work session
-        $session_id = $_POST['session_id'] ?? null;
-        $description = $_POST['description'] ?? null;
 
-        if (empty($session_id) || empty($description)) {
+        // Get JSON input and decode it
+        $input = json_decode(file_get_contents('php://input'), true);
+
+        // Validate JSON structure
+        if (!isset($input['session_id']) || !isset($input['description'])) {
+            http_response_code(400);
             echo json_encode([
                 "status" => "error",
                 "message" => "session_id and description are required"
             ]);
             exit();
         }
+        // Handle adding a description to a work session
+        $session_id = $input['session_id'];
+        $description = $input['description'];
 
         $updateQuery = "UPDATE work_sessions SET description = :description WHERE id = :session_id";
         $updateStmt = $pdo->prepare($updateQuery);
         $updateStmt->execute([':description' => $description, ':session_id' => $session_id]);
+
+        // check if successful
+        if ($updateStmt->rowCount() === 0) {
+            echo json_encode([
+                "status" => "error",
+                "message" => "Session " . $session_id ."not found"
+            ]);
+            exit();
+        }
 
         echo json_encode([
             "status" => "success",

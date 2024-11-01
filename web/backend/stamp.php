@@ -3,20 +3,33 @@
 require_once 'database.php';
 header('Content-Type: application/json');
 
-try{
-
+try {
     $pdo = new PDO($dsn, $username, $password, $options);
 
+    // Ensure the request has a JSON Content-Type header
+    if ($_SERVER['CONTENT_TYPE'] !== 'application/json') {
+        http_response_code(400);
+        echo json_encode([
+            "status" => "error",
+            "message" => "Content-Type must be application/json"
+        ]);
+        exit();
+    }
 
-    // Get card_id from HTTP request and validate
-    $card_id = $_GET['card_id'] ?? null;
-    if (empty($card_id)) {
+    // Get JSON input and decode it
+    $input = json_decode(file_get_contents('php://input'), true);
+
+    // Validate JSON structure
+    if (!isset($input['card_id'])) {
+        http_response_code(400);
         echo json_encode([
             "status" => "error",
             "message" => "card_id is required"
         ]);
         exit();
     }
+
+    $card_id = $input['card_id'];
 
     // Find the user_id associated with the card_id
     $query = "SELECT id FROM users WHERE card_id = :card_id LIMIT 1";
@@ -50,7 +63,6 @@ try{
         } else {
             // Start a new session if none is active
             $start_time = date("Y-m-d H:i:s");
-            $description = "Started new session";
             $insertQuery = "INSERT INTO work_sessions (user_id, start_time) VALUES (:user_id, :start_time)";
             $insertStmt = $pdo->prepare($insertQuery);
             $insertStmt->execute([':user_id' => $user_id, ':start_time' => $start_time]);
@@ -69,10 +81,10 @@ try{
         ]);
     }
 
-}catch (PDOException $e) {
+} catch (PDOException $e) {
+    http_response_code(500);
     echo json_encode([
         "status" => "error",
         "message" => $e->getMessage()
     ]);
 }
-
