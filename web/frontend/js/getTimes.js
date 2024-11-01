@@ -39,7 +39,7 @@ function getWorkSessions() {
                 // Description cell
                 const descriptionCell = row.insertCell();
                 if (session.description) {
-                    const p = document.createElement('p');
+                    const p = document.createElement('span');
                     p.textContent = session.description;
                     descriptionCell.appendChild(p);
                 } else {
