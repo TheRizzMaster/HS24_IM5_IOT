@@ -10,12 +10,16 @@ h1, p {
     color: var(--text-color);
 }
 .switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 64px;
-    height: 34px;
-  }
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 34px;
+  position: fixed;
+  bottom: 40px;
+  left: 20px;
+  z-index: 2000;
+}
   
   .switch input {
     opacity: 0;

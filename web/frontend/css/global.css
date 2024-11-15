@@ -1,16 +1,32 @@
 /* Root color variables for light and dark themes */
 :root {
-    --bg-color: #ffffff;
+    --bg-color: #f0f2f5;
+    --container-bg: #ffffff;
     --text-color: #000000;
+    --h1-color: #272758;
+    --input-color: #F5F5F7;
     --accent-color: #73C0FC;
     --toggle-bg: #e8e8e8;
+    --button-color: #272758;
+    --button-hover: #1a1b2e;
+    --button-text: #ffffff;
+    --content-bg: #f0f2f5;
+    --tabel-th: #f0f2f5;
 }
 
 body.dark-mode {
-    --bg-color: #121212;
+    --bg-color: #1E1E1E;
+    --container-bg: #333;
     --text-color: #ffffff;
+    --h1-color: #e0e0e0;
     --accent-color: #183153;
     --toggle-bg: #ffffff;
+    --input-color: #e0e0e0;
+    --button-color: #555;
+    --button-hover: #e0e0e0;
+    --button-text: #4a4a4a;
+    --content-bg: #333;
+    --tabel-th: #1E1E1E;
 }
 
 

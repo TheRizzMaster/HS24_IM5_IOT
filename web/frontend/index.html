@@ -7,6 +7,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 
@@ -18,15 +19,23 @@
         <span class="slider"></span>
     </label>
 
-    <h1>Login</h1>
+    <div class="login-container">
 
-
-    <form id="login-form">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-        <p id="error" style="color: red;"></p>
-    </form>
+        <div class="form-section">
+            <h1>Sign in</h1>
+            <form id="login-form">
+                <input type="text" name="username" placeholder="E-Mail" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p id="error" style="color: red;"></p>
+            </form>
+        </div>
+        <div class="welcome-section">
+            <img class="logo" src="./img/Taim_ing_Logo.png" alt="Logo Taiming">
+            <h2>Welcome back!</h2>
+            <p>We hope you had a safe and enjoyable time away.</p>
+        </div>
+    </div>
 
     <script src="./js/themechange.js"></script>
     <script>
