@@ -1,0 +1,180 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.calendar{
+    background: var(--bg-color);
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-areas: "sidebar main-content";
+    height: 100vh;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* Sidebar with user list */
+.sidebar {
+    grid-area: sidebar;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 300px;
+    background-color: var(--bg-color);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-list {
+    list-style-type: none;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    padding: 0;
+    margin-top: 40vh;
+    margin-left: 2vh;
+}
+
+.user-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--h1-color);
+}
+
+.user-list li .user-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.user-list li svg {
+    position: relative;
+    z-index: 2;
+    opacity: 1;
+}
+
+.user-icon.siro {
+    background-color: #40E0D0;
+    opacity: 1;
+    z-index: 2;
+}
+
+.user-icon.joel {
+    background-color: #FFB347;
+    opacity: 1;
+    z-index: 2;
+}
+
+.user-icon.new-user {
+    background-color: #6C63FF;
+    z-index: 2;
+}
+
+/* Timetable and maincontent */
+.main-content {
+    grid-area: main-content;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--container-bg);
+}
+
+.main-content h1 {
+    font-size: 28px;
+    padding-top: 80px;
+    padding-bottom: 10px;
+    color: var(--h1-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.schedule-table {
+    width: 1100px;
+    max-width: 1100px;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-left: 40px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table-container {
+    max-height: 790px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 1100px;
+    border-collapse: collapse;
+    margin-left: 40px;
+    border-radius: 15px;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid #f0f2f5;
+    padding: 15px;
+    text-align: left;
+}
+
+.schedule-table tr:nth-child(odd) td {
+    background-color: #f9f9f9;
+}
+
+.schedule-table th {
+    background-color: #f0f2f5;
+    color: #272758;
+    font-weight: normal;
+}
+
+.schedule-table td {
+    background-color: #ffffff;
+}
+
+.schedule-table tr:nth-child(odd) td {
+    background-color: #f9f9f9;
+}
+
+.schedule-table .siro {
+    background-color: #40E0D0;
+    color: #ffffff;
+}
+
+.schedule-table .joel {
+    background-color: #FFB347;
+    color: #ffffff;
+}
+  
