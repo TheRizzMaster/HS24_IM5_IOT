@@ -49,6 +49,10 @@ try {
             $deleteStmt = $pdo->prepare($deleteSessionsQuery);
             $deleteStmt->execute([':user_id' => $user_id]);
 
+            $updateQuery = "UPDATE users SET firstname = NULL, lastname = NULL WHERE id = :id";
+            $updateStmt = $pdo->prepare($updateQuery);
+            $updateStmt->execute([':id' => $user_id]);
+
             echo json_encode([
                 "status" => "success",
                 "message" => "Existing time entries deleted for card_id",
