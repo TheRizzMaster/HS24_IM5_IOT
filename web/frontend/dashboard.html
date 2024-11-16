@@ -10,7 +10,7 @@
 </head>
 <body>
     
-    <div id="loading-screen">
+    <!-- <div id="loading-screen">
         <div class="terminal-loader">
             <div class="terminal-header">
               <div class="terminal-title">user@taim.ing</div>
@@ -22,7 +22,7 @@
             </div>
             <div class="text">laden...</div>
         </div>
-    </div>    
+    </div>     -->
 
     <label class="switch">
         <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
@@ -37,7 +37,22 @@
     <div class="dashboard-container">
         <aside class="sidebar">
 
-            <input id="datepicker" type="text" />
+            <div class="date-picker-container">
+                <div class="calendar-header">
+                    <button id="prevMonth">&lt;</button>
+                    <span id="currentMonthYear"></span>
+                    <button id="nextMonth">&gt;</button>
+                </div>
+                <div class="calendar">
+                    <div class="weekday">Mo</div>
+                    <div class="weekday">Di</div>
+                    <div class="weekday">Mi</div>
+                    <div class="weekday">Do</div>
+                    <div class="weekday">Fr</div>
+                    <div class="weekday">Sa</div>
+                    <div class="weekday">So</div>
+                </div>
+            </div>
 
             <ul class="user-list">
                 <li><span class="user-icon siro"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" fill="#f0f2f5"/></svg></span> Siro</li>
@@ -70,8 +85,9 @@
         </main>
     </div>
     
-    <script src="./js/checksession.js"></script>
+    <!-- <script src="./js/checksession.js"></script> -->
     <script src="./js/getTimes.js"></script>
+    <script src="./js/datepicker.js"></script>
     <script src="./js/themechange.js"></script>
     <script src="./js/logout.js"></script>
 </body>

@@ -12,6 +12,7 @@
     --button-text: #ffffff;
     --content-bg: #f0f2f5;
     --tabel-th: #f0f2f5;
+    --transparent-hover: rgba(0, 0, 0, 0.1)
 }
 
 body.dark-mode {
@@ -27,6 +28,7 @@ body.dark-mode {
     --button-text: #4a4a4a;
     --content-bg: #333;
     --tabel-th: #1E1E1E;
+    --transparent-hover: rgba(255, 255, 255, 0.1)
 }
 
 

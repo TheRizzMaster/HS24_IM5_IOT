@@ -33,6 +33,9 @@ body {
     background-color: var(--bg-color);
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .user-list {
@@ -40,8 +43,6 @@ body {
     max-height: calc(100vh - 150px);
     overflow-y: auto;
     padding: 0;
-    margin-top: 40vh;
-    margin-left: 2vh;
 }
 
 .user-list li {
@@ -177,4 +178,71 @@ body {
     background-color: #FFB347;
     color: #ffffff;
 }
-  
+
+
+/* DATEPICKER BY SIRO RUDOLF */
+.date-picker-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    width: fit-content;
+    border: 1px solid var(--bg-color);
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background: var(--container-bg);
+    height: 290px;
+    margin: 0 auto;
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+.calendar-header button {
+    background: none;
+    border: none;
+    padding: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.calendar-header button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+.calendar-header span {
+    font-weight: 600;
+    font-size: 14px;
+}
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 5px 5px;
+}
+.weekday, .day {
+    text-align: center;
+    padding: 8px 6px;
+    border-radius: 100%;
+    transition: background 0.2s, color 0.2s;
+    font-size: 12px;
+}
+.weekday {
+    font-weight: 500;
+    color: var(--text-color);
+}
+.day.date-cell {
+    cursor: pointer;
+    color: var(--text-color);
+}
+.day.date-cell:hover {
+    background: var(--transparent-hover);
+}
+.day.date-cell.selected {
+    background: #007aff;
+    color: white;
+}
+.day.date-cell.selected:hover {
+    background: #007aff; /* Keeps the selected style on hover */
+    color: white;
+}
