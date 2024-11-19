@@ -28,20 +28,33 @@
 SPIClass spi;
 
 // RFID driver instances
-MFRC522DriverPinSimple ss_pin(RFID_SDA_PIN);
+MFRC522DriverPinSimple ss_pin(RFID_SDA_PIN); 
 MFRC522DriverSPI rfidDriver(ss_pin, spi);
 MFRC522 rfid(rfidDriver);  // Create MFRC522 instance
 
 
-// WiFi credentials
-const char* ssid = "yallo_2335951";
-const char* password = "vwYrp4pyj5wjvfYx";
+// Define a structure to hold SSID and password pairs
+struct WiFiCredentials {
+  const char* ssid;
+  const char* password;
+};
+
+// Array of possible WiFi credentials
+WiFiCredentials wifiList[] = {
+  {"SSID1", "password1"},
+  {"SSID2", "password2"},
+  {"SSID3", "password3"},
+  {"WIFI4", "password4"},
+  // Add more pairs as needed
+};
+
+int wifiCount = sizeof(wifiList) / sizeof(wifiList[0]); // Number of entries in wifiList
 
 const char* serverURL = "https://taim.ing/php/";  // Replace with your server endpoint
 
 
 void setup() {
-  // Initialize serial monitor
+    // Initialize serial monitor
   Serial.begin(115200);
 
   // Initialize LEDs
@@ -67,13 +80,39 @@ void setup() {
 
   // Initialize WiFi and indicate with the blue LED
   digitalWrite(LED_BLUE, LOW);  // Blue LED glows while connecting
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
+  // Attempt to connect to each WiFi network in the list
+  for (int i = 0; i < wifiCount; i++) {
+    Serial.print("Attempting to connect to SSID: ");
+    Serial.println(wifiList[i].ssid);
+    
+    WiFi.begin(wifiList[i].ssid, wifiList[i].password);
+    int attemptCount = 0;
+    
+    // Try to connect for up to 10 seconds
+    while (WiFi.status() != WL_CONNECTED && attemptCount < 20) {
+      delay(500);
+      Serial.print(".");
+      attemptCount++;
+    }
+    
+    if (WiFi.status() == WL_CONNECTED) {
+      Serial.print("\nConnected to ");
+      Serial.print(wifiList[i].ssid);
+      Serial.print(" with IP: ");
+      Serial.println(WiFi.localIP());
+      digitalWrite(LED_BLUE, HIGH);  // Turn off blue LED after connection
+      break; // Stop once connected
+    } else {
+      Serial.println("\nFailed to connect.");
+    }
   }
-  digitalWrite(LED_BLUE, HIGH);  // Turn off blue LED after connection
-  Serial.println("\nConnected to WiFi");
+
+  // Check if no networks connected
+  if (WiFi.status() != WL_CONNECTED) {
+    Serial.println("Unable to connect to any WiFi network.");
+    digitalWrite(LED_RED, LOW);  // Turn off blue LED after connection
+  }
+  
 }
 
 
@@ -154,17 +193,17 @@ void sendAddCardRequest(String cardID) {
           digitalWrite(SOUND_MODULE_PIN, LOW);
         } else {
           // Blink red and blue for error
-          for (int i = 0; i < 3; i++) {
-            digitalWrite(SOUND_MODULE_PIN, HIGH);
-            digitalWrite(LED_BLUE, HIGH); // Turn off LED
-            digitalWrite(LED_RED, LOW);  // Turn on LED (LOW for common anode)
-            delay(300);
-            digitalWrite(LED_BLUE, LOW);  // Turn on LED (LOW for common anode)
-            digitalWrite(LED_RED, HIGH); // Turn off LED
-            digitalWrite(SOUND_MODULE_PIN, LOW);
-            delay(300);
-          }
-          digitalWrite(LED_BLUE, HIGH);
+            for (int i = 0; i < 3; i++) {
+              digitalWrite(SOUND_MODULE_PIN, HIGH);
+              digitalWrite(LED_BLUE, HIGH); // Turn off LED
+              digitalWrite(LED_RED, LOW);  // Turn on LED (LOW for common anode)
+              delay(300);
+              digitalWrite(LED_BLUE, LOW);  // Turn on LED (LOW for common anode)
+              digitalWrite(LED_RED, HIGH); // Turn off LED
+              digitalWrite(SOUND_MODULE_PIN, LOW);
+              delay(300);
+            }
+           digitalWrite(LED_BLUE, HIGH);
         }
       }
     } else {
@@ -209,14 +248,14 @@ void sendStampRequest(String cardID) {
       if (JSON.typeof(responseObject) == "undefined") {
         Serial.println("Failed to parse JSON response");
         // Blink red for error
-        for (int i = 0; i < 5; i++) {
-          digitalWrite(SOUND_MODULE_PIN, HIGH);
-          digitalWrite(LED_RED, LOW);
-          delay(500);
-          digitalWrite(SOUND_MODULE_PIN, LOW);
-          digitalWrite(LED_RED, HIGH);
-          delay(500);
-        }
+          for (int i = 0; i < 5; i++) {
+            digitalWrite(SOUND_MODULE_PIN, HIGH);
+            digitalWrite(LED_RED, LOW);
+            delay(500);
+            digitalWrite(SOUND_MODULE_PIN, LOW);
+            digitalWrite(LED_RED, HIGH);
+            delay(500);
+          }
       } else {
         // Check the "status" field in the response
         String status = (const char*) responseObject["status"];
@@ -234,19 +273,19 @@ void sendStampRequest(String cardID) {
             }
           } else if (message == "New session started") {
             // Blink green LED once
-            digitalWrite(SOUND_MODULE_PIN, HIGH);
-            digitalWrite(LED_GREEN, LOW);
-            delay(2000);
-            digitalWrite(SOUND_MODULE_PIN, LOW);
-            digitalWrite(LED_GREEN, HIGH);
-            delay(1000);
+              digitalWrite(SOUND_MODULE_PIN, HIGH);
+              digitalWrite(LED_GREEN, LOW);
+              delay(2000);
+              digitalWrite(SOUND_MODULE_PIN, LOW);
+              digitalWrite(LED_GREEN, HIGH);
+              delay(1000);
           } else {
             // Unknown success message - just blink green and blue as a fallback
             blinkLEDs(LED_GREEN, LED_BLUE, 3, 300);
           }
         } else {
           // Blink red for error
-          for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 5; i++) {
             digitalWrite(SOUND_MODULE_PIN, HIGH);
             digitalWrite(LED_RED, LOW);
             delay(500);
