@@ -8,8 +8,6 @@ let selectedDate = currentDate.getDate(); // Set selectedDate to today's date
 let selectedYear = currentDate.getFullYear(); // Set selectedYear to the current year
 let selectedMonth = currentDate.getMonth(); // Set selectedMonth to the current month
 
-console.log('Selected date:', selectedYear + "-" + selectedMonth + "-" + selectedDate);
-getWorkSessionsByDate(selectedYear + "-" + selectedMonth + "-" + selectedDate);
 
 function renderCalendar(date) {
     calendar.querySelectorAll('.day').forEach(day => day.remove());

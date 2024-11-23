@@ -38,25 +38,28 @@ body {
     align-items: center;
 }
 
-.user-list {
+#user-list {
     list-style-type: none;
     max-height: calc(100vh - 150px);
     overflow-y: auto;
     padding: 0;
+    width: 100%;
 }
 
-.user-list li {
+#user-list li {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    justify-content: left;
+    margin-bottom: 20px;
+    padding-left: 10px;
     font-size: 20px;
     font-weight: bold;
     color: var(--h1-color);
 }
 
-.user-list li .user-icon {
-    width: 55px;
-    height: 55px;
+#user-list li .user-icon {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 10px;
     display: flex;
@@ -65,7 +68,7 @@ body {
     z-index: 1;
 }
 
-.user-list li svg {
+#user-list li svg {
     position: relative;
     z-index: 2;
     opacity: 1;
@@ -113,16 +116,16 @@ body {
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    margin-left: 40px;
     border-radius: 15px;
     overflow: hidden;
+    width: 100%;
+    border-spacing: 0;
 }
 
 .table-container {
     max-height: 790px;
     width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: auto;
     padding: 10px;
     box-sizing: border-box;
     max-width: 1100px;
@@ -151,32 +154,11 @@ body {
     text-align: left;
 }
 
-.schedule-table tr:nth-child(odd) td {
-    background-color: #f9f9f9;
-}
 
 .schedule-table th {
     background-color: #f0f2f5;
     color: #272758;
     font-weight: normal;
-}
-
-.schedule-table td {
-    background-color: #ffffff;
-}
-
-.schedule-table tr:nth-child(odd) td {
-    background-color: #f9f9f9;
-}
-
-.schedule-table .siro {
-    background-color: #40E0D0;
-    color: #ffffff;
-}
-
-.schedule-table .joel {
-    background-color: #FFB347;
-    color: #ffffff;
 }
 
 
