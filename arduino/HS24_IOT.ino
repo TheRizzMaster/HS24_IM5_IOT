@@ -50,7 +50,7 @@ WiFiCredentials wifiList[] = {
 
 int wifiCount = sizeof(wifiList) / sizeof(wifiList[0]); // Number of entries in wifiList
 
-const char* serverURL = "https://taim.ing/php/";  // Replace with your server endpoint
+const char* serverURL = "https://taim.ing/php/";
 
 
 void setup() {
@@ -148,7 +148,6 @@ void loop() {
       delay(1000);
     }
   }
-  // put your main code here, to run repeatedly:
 
 }
 
@@ -156,7 +155,7 @@ void loop() {
 void sendAddCardRequest(String cardID) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
-    String url = String(serverURL) + "registerChip.php";  // Correct string concatenation
+    String url = String(serverURL) + "registerChip.php";
     http.begin(url);
     http.addHeader("Content-Type", "application/json");
 
@@ -223,7 +222,7 @@ void sendAddCardRequest(String cardID) {
 void sendStampRequest(String cardID) {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
-    String url = String(serverURL) + "stamp.php";  // Correct string concatenation for the URL
+    String url = String(serverURL) + "stamp.php";
     http.begin(url);
     http.addHeader("Content-Type", "application/json");
 
