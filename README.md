@@ -1,22 +1,105 @@
 # HS24_IM5_IOT – Taim.ing
 
-## Projektbeschreibung
-**HS24_IM5_IOT – Taim.ing** ist ein IoT-Projekt, das ein Zeiterfassungsgerät mit integriertem RFID-Leser entwickelt. Das System ermöglicht es Benutzern, sich mit RFID-Karten zu identifizieren und ihre An- und Abwesenheitszeiten zu erfassen. Ziel des Projekts ist die effiziente und kontaktlose Zeitverwaltung, die einfach in Arbeitsumgebungen oder Zugangskontrollsysteme integriert werden kann.
+## Überblick
 
-## Funktionen
-- **RFID-Leser**: Erfasst RFID-Karten zur Identifikation von Benutzern.
-- **Zeitstempel-Funktion**: Automatische Protokollierung von An- und Abmeldezeiten.
-- **Datenspeicherung**: Speicherung von Zeiterfassungsdaten zur späteren Analyse.
-- **Web-Dashboard (optional)**: Visualisierung und Export der erfassten Daten (wenn implementiert).
+**Taim.ing** ist ein innovatives IoT-Projekt zur Zeiterfassung, speziell entwickelt für Freelancer und Selbstständige. Es kombiniert RFID-Technologie mit einer benutzerfreundlichen Web-Oberfläche zur Visualisierung der erfassten Zeiten. Das System gibt visuelles und auditives Feedback und ermöglicht das Hinzufügen neuer Mitarbeiterkarten über einen Pairing-Modus.
 
-## Systemarchitektur
-Das Projekt umfasst:
-- **Hardware**: Mikrocontroller (z.B. ESP32S3), RFID-Lesemodul (MFRC522), LEDs und gegebenenfalls ein Piezo Summer
-- **Software**: Firmware für die Steuerung des RFID-Lesers, Feedback Signalen und HTTP-Requests.
+---
 
-## Voraussetzungen
-### Hardware
-- RFID-Lesemodul (z.B. MFRC522)
-- Mikrocontroller (z.B. ESP32S3)
-- Breadboard und Verkabelung
-- LED-Anzeigen und ggf. ein Piezo Summer
+## Inhalt
+
+1. [UX Dokumentation](#ux-dokumentation)
+   - Inspirationen
+   - Designentscheidungen
+   - Prozess und Vorgehensweise
+2. [Technische Dokumentation](#technische-dokumentation)
+   - Verbindungsschema
+   - Kommunikationsprozess
+   - Umsetzungsprozess
+   - Known Bugs
+   - Lernerfolg
+3. [Aufgabenaufteilung](#aufgabenaufteilung)
+4. [Learning & Herausforderungen](#learning--herausforderungen)
+
+---
+
+## UX Dokumentation
+
+### Inspirationen
+Für die Gestaltung der Benutzeroberfläche haben wir uns von minimalistischen und modernen Designs inspirieren lassen. Die Farbpalette wurde bewusst in dezenten, beruhigenden Farben gehalten, um ein professionelles Erscheinungsbild zu gewährleisten. 
+
+### Designentscheidungen
+- **Login-Screen**: Klare und einfache Struktur, um die User direkt zu empfangen.
+- **Dashboard-Ansicht**: Die Kombination aus Kalender und Tabelle erlaubt eine schnelle Übersicht über gearbeitete Zeiten.
+- **Card Manager**: Ermöglicht eine intuitive Verwaltung von Karten (RFID), sowie das Zuweisen neuer Karten.
+
+### Prozess und Vorgehensweise
+Taim.ing inspiriert sich an führenden Zeiterfassungs-Tools und vereint die Besten Aspekte derer. Nach Erstellung des Look and Feel der Seite konnten Elemente sowie Raster definiert werden. Die Umsetzung im Code konnte dieser Vorlagen abgenommen werden.
+
+**Screenshots**:
+![Login-Screen](./relative-path-to-image1.png)  
+![Dashboard](./relative-path-to-image2.png)  
+![Card Manager](./relative-path-to-image3.png)
+
+---
+
+## Technische Dokumentation
+
+### Verbindungsschema
+*(Hier Platzhalter für den Steckplan einfügen)*
+
+Das System basiert auf einem ESP32S3-Mikrocontroller, einem RFID-Reader, RGB-LED und einem Piezo-Summer. Der RFID-Leser kommuniziert mit dem Mikrocontroller und überträgt die UID der Karten, welche anschliessend verarbeitet und in einer Tabelle gespeichert werden.
+
+### Kommunikationsprozess
+1. **RFID-Reader**: Liest die UID der Mitarbeiterkarte.
+2. **Microcontroller (ESP32S3)**: Erkennt das Signal, prüft die UID und speichert die Zeitdaten.
+3. **Visuelles und Auditives Feedback**: LED und Piezo-Summer informieren den Nutzer.
+4. **Web-Server**: Sendet die Daten zur Visualisierung an die Website.
+
+
+### Umsetzungsprozess
+1. **Hardware-Einrichtung**:
+   - Initiale Verkabelung der Komponenten (RFID, LEDs, Button, Piezo-Summer).
+   - Test der Spannungsversorgung (Probleme mit dem SD-Card-Reader).
+2. **Software-Entwicklung**:
+   - WiFi-Einrichtung für die Web-Kommunikation.
+   - Speichern der Netzwerk-Konfigurationen in einem Array.
+   - Programmierung des RFID-Reader.
+   - Programmierung des pairing Modus
+   - Programmierung der Regeln für Erfolg und Error (LED, Piezo-Summer)
+3. **Testing & Debugging**:
+   - Pairing-Modus implementiert und verfeinert.
+   - Testläufe zur Datenübertragung und Fehlersuche.
+4. **Verworfene Lösungsansätze**:
+   - Der ursprünglich geplante Einsatz eines SD-Card-Readers scheiterte am fehlenden 5V-Pin.
+
+### Known Bugs
+- Doom-Searching bei schlechten WiFi Signalen.
+- Kein Handling für doppelte UID-Einträge implementiert.
+
+### Lernerfolg
+Wir haben gelernt, wie wichtig die Hardware-Auswahl für die Projektplanung ist. Zudem konnten wir wertvolle Erfahrungen in der Nutzung von IoT-Komponenten, insbesondere mit dem ESP32S3 und dem RFID-Reader, sammeln. Der Umgang mit Problemen wie der SD-Card-Reader-Herausforderung stärkte unsere Problemlösungsfähigkeiten.
+
+---
+
+## Aufgabenaufteilung
+- **Umsetzungsplanung: Teamarbeit
+- **Hardware-Setup und Verkabelung**: Teamarbeit
+- **Lötarbeiten**: Siro
+- **Zusammensetzen der Komponenten**: Teamarbeit
+- **Arduino-Programmierung**: Siro
+- **UX-Design**: Joel
+- **Backend**: Siro
+- **Frontend**: Teamarbeit
+- **3D-Model und Steckpläne**: Joel
+
+---
+
+## Learning & Herausforderungen
+Geplant war der Einsatz eines Micro SD-Card-Readers zur Speicherung der WiFi-Konfiguration. Da unser Microcontroller jedoch keinen 5V-Pin bereitstellt, mussten wir diesen Ansatz aufgeben und die Netzwerkkonfiguration in einem Array ablegen. Diese Lösung ermöglichte uns Flexibilität, jedoch mit Einschränkungen bei der Skalierbarkeit.
+
+---
+
+**Credits**  
+Dieses Projekt wurde mithilfe von KI-Hilfsmitteln wie ChatGPT erstellt, um Dokumentation und Debugging zu erleichtern.
+
