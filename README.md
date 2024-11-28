@@ -103,5 +103,5 @@ Geplant war der Einsatz eines Micro SD-Card-Readers zur Speicherung der WiFi-Kon
 ---
 
 **Credits**  
-Dieses Projekt wurde mithilfe von KI-Hilfsmitteln wie ChatGPT erstellt, um Dokumentation und Debugging zu erleichtern.
+Dieses Projekt wurde mithilfe von KI-Hilfsmitteln wie ChatGPT und GitHub Copilot erstellt, um Dokumentation, Programmierung und Debugging zu erleichtern.
 
