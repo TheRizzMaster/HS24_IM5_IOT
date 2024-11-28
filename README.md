@@ -39,9 +39,11 @@ Für die Gestaltung der Benutzeroberfläche haben wir uns von minimalistischen u
 Taim.ing inspiriert sich an führenden Zeiterfassungs-Tools und vereint die Besten Aspekte derer. Nach Erstellung des Look and Feel der Seite konnten Elemente sowie Raster definiert werden. Die Umsetzung im Code konnte dieser Vorlagen abgenommen werden.
 
 **Screenshots**:
-![Login-Screen](/git_image/Login.png)  
-![Dashboard](/git_image/Dashboard.png)  
-![Card Manager](/git_image/Kartenverwaltung.png)
+<p align="center">
+  <img src="/git_image/Login.png" alt="Login" width="150" />
+  <img src="/git_image/Dashboard.png" alt="Dashboard" width="150" />
+  <img src="/git_image/Kartenverwaltung.png" alt="Kartenverwaltung" width="150" />
+</p>
 
 ---
 
