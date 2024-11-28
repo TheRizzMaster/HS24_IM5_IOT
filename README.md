@@ -50,6 +50,8 @@ Taim.ing inspiriert sich an führenden Zeiterfassungs-Tools und vereint die Best
 ### Verbindungsschema
 ![Steckplan](/git_image/Steckplan_taiming.png)  
 
+![Steckplan](/git_image/Steckplan.gif) 
+
 Das System basiert auf einem ESP32S3-Mikrocontroller, einem RFID-Reader, RGB-LED, einem Piezo-Summer sowie einem Button. Der RFID-Leser kommuniziert mit dem Mikrocontroller und überträgt die UID der Karten, welche anschliessend verarbeitet und in einer Tabelle gespeichert werden.
 
 ### Kommunikationsprozess
