@@ -40,9 +40,9 @@ Taim.ing inspiriert sich an führenden Zeiterfassungs-Tools und vereint die Best
 
 **Screenshots**:
 <p align="center">
-  <img src="/git_image/Login.png" alt="Login" width="150" />
-  <img src="/git_image/Dashboard.png" alt="Dashboard" width="150" />
-  <img src="/git_image/Kartenverwaltung.png" alt="Kartenverwaltung" width="150" />
+  <img src="/git_image/Login.png" alt="Login" width="300" />
+  <img src="/git_image/Dashboard.png" alt="Dashboard" width="300" />
+  <img src="/git_image/Kartenverwaltung.png" alt="Kartenverwaltung" width="300" />
 </p>
 
 ---
