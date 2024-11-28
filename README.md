@@ -4,6 +4,8 @@
 
 **Taim.ing** ist ein innovatives IoT-Projekt zur Zeiterfassung, speziell entwickelt für Freelancer und Selbstständige. Es kombiniert RFID-Technologie mit einer benutzerfreundlichen Web-Oberfläche zur Visualisierung der erfassten Zeiten. Das System gibt visuelles und auditives Feedback und ermöglicht das Hinzufügen neuer Mitarbeiterkarten über einen Pairing-Modus.
 
+[taim.ing](https://taim.ing)
+
 ---
 
 ## Inhalt
@@ -37,9 +39,9 @@ Für die Gestaltung der Benutzeroberfläche haben wir uns von minimalistischen u
 Taim.ing inspiriert sich an führenden Zeiterfassungs-Tools und vereint die Besten Aspekte derer. Nach Erstellung des Look and Feel der Seite konnten Elemente sowie Raster definiert werden. Die Umsetzung im Code konnte dieser Vorlagen abgenommen werden.
 
 **Screenshots**:
-![Login-Screen](./relative-path-to-image1.png)  
-![Dashboard](./relative-path-to-image2.png)  
-![Card Manager](./relative-path-to-image3.png)
+![Login-Screen](/git_image/Login.png)  
+![Dashboard](/git_image/Dashboard.png)  
+![Card Manager](/git_image/Kartenverwaltung.png)
 
 ---
 
