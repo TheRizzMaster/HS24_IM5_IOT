@@ -50,7 +50,7 @@ Taim.ing inspiriert sich an führenden Zeiterfassungs-Tools und vereint die Best
 ### Verbindungsschema
 ![Steckplan](/git_image/Steckplan_taiming.png)  
 
-Das System basiert auf einem ESP32S3-Mikrocontroller, einem RFID-Reader, RGB-LED und einem Piezo-Summer. Der RFID-Leser kommuniziert mit dem Mikrocontroller und überträgt die UID der Karten, welche anschliessend verarbeitet und in einer Tabelle gespeichert werden.
+Das System basiert auf einem ESP32S3-Mikrocontroller, einem RFID-Reader, RGB-LED, einem Piezo-Summer sowie einem Button. Der RFID-Leser kommuniziert mit dem Mikrocontroller und überträgt die UID der Karten, welche anschliessend verarbeitet und in einer Tabelle gespeichert werden.
 
 ### Kommunikationsprozess
 1. **RFID-Reader**: Liest die UID der Mitarbeiterkarte.
@@ -85,7 +85,7 @@ Wir haben gelernt, wie wichtig die Hardware-Auswahl für die Projektplanung ist.
 ---
 
 ## Aufgabenaufteilung
-- **Umsetzungsplanung: Teamarbeit
+- **Umsetzungsplanung**: Teamarbeit
 - **Hardware-Setup und Verkabelung**: Teamarbeit
 - **Lötarbeiten**: Siro
 - **Zusammensetzen der Komponenten**: Teamarbeit
