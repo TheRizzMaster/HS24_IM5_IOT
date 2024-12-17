@@ -6,6 +6,7 @@
 
 [taim.ing](https://taim.ing)
 
+![Modell](/git_image/Modell_Animation.gif)
 ---
 
 ## Inhalt
@@ -42,6 +43,8 @@ Taim.ing inspiriert sich an führenden Zeiterfassungs-Tools und vereint die Best
 ![Login](/git_image/Login.png)
 ![Dashboard](/git_image/Dashboard.png)  
 ![Kartenverwaltung](/git_image/Kartenverwaltung.png)  
+
+[Link to FIGMA](https://www.figma.com/design/aJm9YomMdNfLTVVhvq0MdX/Taim.ing?node-id=0-1&t=sUuOW3RuCRC4nPaW-1)
 
 ---
 
