@@ -8,13 +8,13 @@
 
 ![Modell](/git_image/Modell_Animation.gif)
 
-- **Grün leuchten** Nach berühren des RFID-Tag leuchtet die LED grün und zeigt an, dass der User eingestempelt ist. Zusätzlich erklingt ein akustisches Signal.
+- **Grün leuchten:** Nach berühren des RFID-Tag leuchtet die LED grün und zeigt an, dass der User eingestempelt ist. Zusätzlich erklingt ein akustisches Signal.
 
-- **2 Mal grün blinken** Nach berühren des RFID-Tag blinkt die LED 2 Mal grün und zeigt an, dass der User ausgestempelt ist. Zusätzlich erklingt ein akustisches Signal.
+- **2 Mal grün blinken:** Nach berühren des RFID-Tag blinkt die LED 2 Mal grün und zeigt an, dass der User ausgestempelt ist. Zusätzlich erklingt ein akustisches Signal.
 
-- **Pairing Mode** Bei Betätigen des Buttons leuchtet die LED blau, nach berühren des RFID-Tag blinkt die LED blau-grün und zeigt an, dass ein neuer User hinzugefügt oder ein alter überschrieben wurde. Zusätzlich erklingt ein akustisches Signal.
+- **Pairing Mode:** Bei Betätigen des Buttons leuchtet die LED blau, nach berühren des RFID-Tag blinkt die LED blau-grün und zeigt an, dass ein neuer User hinzugefügt oder ein alter überschrieben wurde. Zusätzlich erklingt ein akustisches Signal.
 
-- **Rot blinken** Sollte etwas schieflaufen blinkt die LED ein Paar mal rot. Zusätzlich erklingt ein akustisches Signal.
+- **Rot blinken:** Sollte etwas schieflaufen blinkt die LED ein Paar mal rot. Zusätzlich erklingt ein akustisches Signal.
 ---
 
 ## Inhalt
