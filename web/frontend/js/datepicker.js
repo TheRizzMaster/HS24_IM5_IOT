@@ -2,11 +2,14 @@ const calendar = document.querySelector('.calendar');
 const currentMonthYear = document.getElementById('currentMonthYear');
 const prevMonthBtn = document.getElementById('prevMonth');
 const nextMonthBtn = document.getElementById('nextMonth');
+const monthYearHeader = document.getElementById('month-year-header');
 
 let currentDate = new Date();
 let selectedDate = currentDate.getDate(); // Set selectedDate to today's date
 let selectedYear = currentDate.getFullYear(); // Set selectedYear to the current year
 let selectedMonth = currentDate.getMonth(); // Set selectedMonth to the current month
+
+monthYearHeader.textContent = `${new Date().toLocaleString('de-DE', { month: 'long' })} ${selectedYear}`;
 
 
 function renderCalendar(date) {
@@ -39,6 +42,7 @@ function renderCalendar(date) {
         dayElement.addEventListener('click', () => selectDate(year, month, day));
         calendar.appendChild(dayElement);
     }
+
 }
 
 function selectDate(year, month, day) {
@@ -51,6 +55,8 @@ function selectDate(year, month, day) {
     event.target.classList.add('selected');
     const dateString = `${year}-${month + 1}-${day}`;
     console.log('Date selected:', dateString);
+    monthYearHeader.textContent = `${new Date(dateString).toLocaleString('de-DE', { month: 'long' })} ${selectedYear}`;
+
     getWorkSessionsByDate(dateString);
 }
 
